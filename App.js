@@ -3,7 +3,9 @@ import {
   ActivityIndicator, KeyboardAvoidingView, Platform, Pressable,
   SafeAreaView, StatusBar, StyleSheet, Text, TextInput, View,
 } from 'react-native';
-import auth from '@react-native-firebase/auth';
+import { getAuth, onAuthStateChanged, signInWithPhoneNumber, signOut } from '@react-native-firebase/auth';
+
+const firebaseAuth = getAuth();
 
 const RESEND_SECONDS = 30;
 const E164 = /^\+[1-9]\d{7,14}$/;
@@ -32,7 +34,7 @@ export default function App() {
 
   // Android can auto-read the SMS and sign in without typing the code.
   useEffect(() => {
-    const unsub = auth().onAuthStateChanged((user) => { if (user) setStep('success'); });
+    const unsub = onAuthStateChanged(firebaseAuth, (user) => { if (user) setStep('success'); });
     return () => { unsub(); clearInterval(timer.current); };
   }, []);
 
@@ -53,7 +55,7 @@ export default function App() {
     if (!E164.test(p)) { setError('Enter the number in international format, e.g. +923001234567'); return; }
     setLoading(true);
     try {
-      const result = await auth().signInWithPhoneNumber(p, true);
+      const result = await signInWithPhoneNumber(firebaseAuth, p, true);
       setConfirmation(result);
       setCode('');
       setStep('otp');
@@ -77,7 +79,7 @@ export default function App() {
   };
 
   const reset = async () => {
-    try { await auth().signOut(); } catch {}
+    try { await signOut(firebaseAuth); } catch {}
     setStep('phone'); setCode(''); setError(''); setConfirmation(null);
   };
 

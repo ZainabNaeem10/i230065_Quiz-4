@@ -1,17 +1,27 @@
-   {
-     "expo": {
-       "name": "otp-quiz",
-       "slug": "otp-quiz",
-       "version": "1.0.0",
-       "orientation": "portrait",
-       "android": {
-         "package": "com.otpquiz.app",
-         "googleServicesFile": "./google-services.json"
-       },
-       "plugins": [
-         ["./plugins/withFirebaseBom.js", { "bom": "34.19.0" }],
-         "@react-native-firebase/app",
-         "@react-native-firebase/auth"
-       ]
-     }
-   }
+{
+  "expo": {
+    "name": "otp-quiz",
+    "slug": "otp-quiz",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "android": {
+      "package": "com.otpquiz.app",
+      "googleServicesFile": "./google-services.json"
+    },
+    "plugins": [
+      [
+        "./plugins/withFirebaseBom.js",
+        {
+          "bom": "34.19.0"
+        }
+      ],
+      "@react-native-firebase/app",
+      "@react-native-firebase/auth"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "eac64a00-4613-4ade-a4ce-0aac610fbdfc"
+      }
+    }
+  }
+}
