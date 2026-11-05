@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "661986707307",
+    "project_id": "quiz4-66c3b",
+    "storage_bucket": "quiz4-66c3b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:661986707307:android:15ca9e96a03c7b8a756e2e",
+        "android_client_info": {
+          "package_name": "com.otpquiz.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBm4GX3Cb-UtFklMZzgFWX_vY02hIFn3bs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
